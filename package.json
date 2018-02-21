@@ -1,22 +1,42 @@
 {
   "name": "ng-socializer",
   "version": "1.0.0-alpha.0",
-  "description": "A Collection of Angular Services for Social Network Integration.",
   "license": "MIT",
+  "description": "A Collection of Angular Services for Social Network Integration.",
+  "keywords": [
+    "angular",
+    "angular2",
+    "angular4",
+    "ng2",
+    "ng4",
+    "ng5",
+    "ngx",
+    "social",
+    "socialize",
+    "social integration",
+    "social service",
+    "facebook service",
+    "google service",
+    "instagram service",
+    "pinterest service",
+    "social login",
+    "social signup"
+  ],
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot --port 7002 --hmr --open",
     "build": "ng build --prod --no-source",
     "test": "ng test --code-coverage",
     "lint": "ng lint --type-check",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "pkgr": "ng-packagr -p ng-package.json"
   },
   "private": false,
   "peerDependencies": {
     "@angular/core": ">=5.0.0",
     "@angular/common": ">=5.0.0",
-    "rxjs": ">=5.5.0",
-    "zone.js": ">=0.8.14"
+    "rxjs": ">=5.5.6",
+    "zone.js": ">=0.8.19"
   },
   "devDependencies": {
     "@angular/cli": "^1.6.8",
@@ -39,9 +59,11 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^2.0.0",
     "protractor": "~5.1.2",
     "rxjs": "^5.5.6",
     "ts-node": "~4.1.0",
+    "tsickle": "^0.27.2",
     "tslint": "~5.9.1",
     "typescript": "^2.6.2",
     "zone.js": "^0.8.19"

@@ -1,27 +1,78 @@
-# NgSocializer
+# ng-socializer [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=A%20Collection%20of%20Angular%20Services%20for%20Social%20Integration&url=https://github.com/sabbirrahman/ng-socializer&via=sabbirrahmanme&hashtags=angular,ng,socializer)
+>A Collection of Angular Services for Social Integration.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.0.
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/sabbirrahman/ng-socializer/blob/master/LICENSE)
+<!-- [![Build Status](https://travis-ci.org/sabbirrahman/ng-socializer.svg?branch=master)](https://travis-ci.org/sabbirrahman/ng-socializer) -->
+<!-- [![NPM version](https://badge.fury.io/js/ng-socializer.svg)](https://www.npmjs.com/package/ng-socializer) -->
 
-## Development server
+Do you find integrating social network into your angular application harder? Fear no more, ng-socializer lets you integrate social networks such as facebook, google, instagram and pinterest easily.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Features
+* Supports facebook, google, instagram and pinterest.
+* Easy and common API for all supported social networks.
+* Common data structure for user profile reponse.
+* RxJS observable based.
+* Strongly typed API.
 
-## Code scaffolding
+## Installation
+`npm install --save ng-socializer`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## How To
 
-## Build
+1. Import SocializerModule into Your App/Root Module
+```typescript
+import { SocializerModule } from 'ng-socializer';
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+@NgModule({
+  ...
+  imports: [
+    SocializerModule.forRoot()
+  ]
+  ...
+})
+export class AppModule { }
+```
 
-## Running unit tests
+2. Import and initialize the social sdk that you need from any component
+```typescript
+import { FacebookSocializer } from 'ng-socializer';
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+export class MySocialComponent implements OnInit {
+  constructor(private facebookSocializer: FacebookSocializer) {}
+  ngOnInit() {
+    this.facebookSocializer
+        .init({
+          appId: appId,
+          scope: scope,
+          field: field
+        })
+        .subscribe();
+  }
+}
+```
 
-## Running end-to-end tests
+3. Use the service to get user's profile informations
+```typescript
+import { FacebookSocializer, SocialProfile } from 'ng-socializer';
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+export class MySocialComponent implements OnInit {
+  ...
+  userInfo: SocialProfile;
+  getUserFacebookInfo() {
+    this.facebookSocializer.connect().subscribe((userInfo) => {
+      this.userInfo = userInfo;
+    });
+  }
+  ...
+}
+```
 
-## Further help
+## Documentation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+See full documentation [here](https://github.com/sabbirrahman/ng-socializer/blob/master/DOCUMENTATION.md).
+
+<!-- ## Development & Contribution
+
+Run `npm run test` to execute the unit tests via [Karma](https://karma-runner.github.io). This will help you to run and debug your code if you wish to contribute to the development of this library.-->
+
+Enjoy 😃 
