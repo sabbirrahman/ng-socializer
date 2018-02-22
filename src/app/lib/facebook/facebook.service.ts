@@ -9,7 +9,6 @@ import { of } from 'rxjs/observable/of';
 import { SocialService } from '../social/social.service';
 // Interfaces & Models
 import { SocializerMethod, SocialProfile } from '../socializer.interface';
-import { DEFAULT_SOCIAL_PROFILE } from '../socializer.model';
 // Utils
 import { asyncScriptLoad } from '../socializer.util';
 // Declarations
@@ -62,12 +61,7 @@ export class FacebookSocializer extends SocialService implements SocializerMetho
                 });
 
                 this._updateInitiationStatus(false, true);
-
-                if (!autoConnect) {
-                  return of({ success: true });
-                } else {
-                  return this.connect(true);
-                }
+                return !autoConnect ? of({ success: true }) : this.connect(true);
               })
             );
       })

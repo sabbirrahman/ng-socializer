@@ -1,3 +1,5 @@
+// RxJS
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 
 export interface SocialProfile {
@@ -13,13 +15,13 @@ export interface SocialProfile {
 }
 
 export interface SocializerMethod {
-  // Status Observables
-  loading$: Observable<boolean>;
-  loaded$: Observable<boolean>;
-  connecting$: Observable<boolean>;
-  connected$: Observable<boolean>;
-  // Profile Observables
-  profile$: Observable<SocialProfile>;
+  // Status BehaviorSubject
+  loading$: BehaviorSubject<boolean>;
+  loaded$: BehaviorSubject<boolean>;
+  connecting$: BehaviorSubject<boolean>;
+  connected$: BehaviorSubject<boolean>;
+  // Profile BehaviorSubject
+  profile$: BehaviorSubject<SocialProfile>;
   // Basic Methods
   init(config: any): Observable<{ success: boolean }>;
   connect(): Observable<{ success: boolean }>;
