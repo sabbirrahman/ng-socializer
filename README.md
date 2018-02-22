@@ -40,28 +40,35 @@ import { FacebookSocializer } from 'ng-socializer';
 export class MySocialComponent implements OnInit {
   constructor(private facebookSocializer: FacebookSocializer) {}
   ngOnInit() {
-    this.facebookSocializer
-        .init({
-          appId: appId,
-          scope: scope,
-          field: field
-        })
-        .subscribe();
+    this.facebookSocializer.init({ appId: appId }).subscribe();
   }
 }
 ```
 
-3. Use the service to get user's profile informations
+3. Use the service to connect and get user's profile informations
 ```typescript
 import { FacebookSocializer, SocialProfile } from 'ng-socializer';
 
 export class MySocialComponent implements OnInit {
   ...
-  userInfo: SocialProfile;
-  getUserFacebookInfo() {
-    this.facebookSocializer.connect().subscribe((userInfo) => {
-      this.userInfo = userInfo;
+  ngOnInit() {
+    ...
+    // Everytime User Connects or Disconnects, A Value will be Emmited from profile$ property
+    this.facebookSocializer.profile$.subscribe((profile) => {
+      console.log(profile);
     });
+  }
+
+  // Call This Method from View on Click Event
+  connectWithFacebook() {
+    this.facebookSocializer.connect().subscribe();
+  }
+
+  // Don't Forget to Unsubscribe
+  ngOnInit() {
+    if (this.facebookSocializer.profile$) {
+      this.facebookSocializer.profile$.unsubscribe();
+    }
   }
   ...
 }

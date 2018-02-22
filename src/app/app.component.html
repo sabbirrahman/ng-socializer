@@ -11,19 +11,31 @@
       type="facebook"
     ></social-box>
 
-    <!-- <section>
-      <pre></pre>
-      <button type="button" class="google">Connect with Google</button>
-    </section> -->
+    <social-box
+      [connected]="googleConnected$ | async"
+      [profile]="googleProfileInfo$ | async"
+      [status]="googleStatus$ | async"
+      (disconnect)="disconnect('google')"
+      (connect)="connect('google')"
+      type="google"
+    ></social-box>
 
-    <!-- <section>
-      <pre></pre>
-      <button type="button" class="instagram">Connect with Instagram</button>
-    </section> -->
+    <!-- <social-box
+      [connected]="instagramConnected$ | async"
+      [profile]="instagramProfileInfo$ | async"
+      [status]="instagramStatus$ | async"
+      (disconnect)="disconnect('instagram')"
+      (connect)="connect('instagram')"
+      type="instagram"
+    ></social-box> -->
 
-    <!-- <section>
-      <pre></pre>
-      <button type="button" class="pinterest">Connect with Pinterest</button>
-    </section> -->
+    <!-- <social-box
+      [connected]="pinterestConnected$ | async"
+      [profile]="pinterestProfileInfo$ | async"
+      [status]="pinterestStatus$ | async"
+      (disconnect)="disconnect('pinterest')"
+      (connect)="connect('pinterest')"
+      type="pinterest"
+    ></social-box> -->
   </div>
 </main>

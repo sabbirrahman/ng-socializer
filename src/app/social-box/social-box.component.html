@@ -17,4 +17,5 @@
 >{{ status === 1 ? 'SDK Loading...' :  status === 4 ? 'Connecting...' : 'Connect with ' + type }}</button>
 <button *ngIf="connected"
   type="button" [ngClass]="type" (click)="disconnect.emit()"
->{{ status === 4 ? 'Disconnecting...' : 'Disconnect ' + type }}</button>
+>{{ status === 4 ? 'Disconnecting...' : 'Disconnect ' + type }}</button>&nbsp;
+{{ 'Status: ' + status }}
