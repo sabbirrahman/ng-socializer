@@ -86,7 +86,7 @@ export class GoogleSocializer extends SocialService implements SocializerMethod 
         .pipe(
           map(() => {
             this.ngZone.runTask(() => {
-              this._updateProfile(this.getProfile());
+              this._updateProfile(this._getProfile());
               this._updateConnectionStatus(false, true);
             });
             return { success: true };
@@ -100,7 +100,7 @@ export class GoogleSocializer extends SocialService implements SocializerMethod 
           })
         );
     } else if (this.GoogleAuth && this.GoogleAuth.isSignedIn.get()) {
-      this._updateProfile(this.getProfile());
+      this._updateProfile(this._getProfile());
       this._updateConnectionStatus(false, true);
       return of({ success: true });
     } else {
@@ -130,7 +130,7 @@ export class GoogleSocializer extends SocialService implements SocializerMethod 
       );
   }
 
-  getProfile(): SocialProfile {
+  private _getProfile(): SocialProfile {
     const info = this.GoogleAuth.currentUser.get().getBasicProfile();
     const user: SocialProfile = {
       id: info.getId() || '',
