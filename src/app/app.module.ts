@@ -1,4 +1,5 @@
 // Imports from @angular
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // Socializer Module
@@ -12,6 +13,7 @@ import { SocialBoxComponent } from './social-box/social-box.component';
   bootstrap: [AppComponent],
   imports: [
     SocializerModule.forRoot(),
+    HttpClientModule,
     BrowserModule
   ]
 })

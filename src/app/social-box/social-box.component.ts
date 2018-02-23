@@ -1,7 +1,7 @@
 // Imports from @angular
 import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 // Interfaces
-import { SocialProfile } from '../lib/socializer.interface';
+import { SocialProfile, SocialPlatforms } from '../lib/socializer.interface';
 
 @Component({
   selector: 'social-box',
@@ -14,7 +14,7 @@ export class SocialBoxComponent {
   @Output() connect = new EventEmitter();
 
   @Input() profile: SocialProfile;
+  @Input() type: SocialPlatforms;
   @Input() connected: boolean;
   @Input() status: number;
-  @Input() type: string;
 }

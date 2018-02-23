@@ -4,10 +4,11 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ChangeDe
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 // Services
+import { InstagramSocializer } from './lib/instagram/instagram.service';
 import { FacebookSocializer } from './lib/facebook/facebook.service';
 import { GoogleSocializer } from './lib/google/google.service';
 // Interfaces
-import { SocialProfile } from './lib/socializer.interface';
+import { SocialProfile, SocialPlatforms } from './lib/socializer.interface';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,13 @@ export class AppComponent implements OnInit {
   googleConnected$: Observable<boolean>;
   googleStatus$: Observable<number>;
 
+  // Instagram
+  instagramProfileInfo$: Observable<SocialProfile>;
+  instagramConnected$: Observable<boolean>;
+  instagramStatus$: Observable<number>;
+
   constructor(
+    private instagram: InstagramSocializer,
     private facebook: FacebookSocializer,
     private google: GoogleSocializer,
     private cdr: ChangeDetectorRef
@@ -47,13 +54,19 @@ export class AppComponent implements OnInit {
     this.googleProfileInfo$ = this.google.profile$;
     this.googleConnected$ = this.google.connected$;
     this.googleStatus$ = this.google.status$;
+
+    // Instagram
+    this.instagram.init({ clienId: '667599dfbeb34e07b107161c6191dfe9' }, true).subscribe();
+    this.instagramProfileInfo$ = this.instagram.profile$;
+    this.instagramConnected$ = this.instagram.connected$;
+    this.instagramStatus$ = this.instagram.status$;
   }
 
-  connect(socialNetwork: 'facebook' | 'google') {
-    this[socialNetwork].connect().subscribe();
+  connect(socialPlatforms: SocialPlatforms) {
+    this[socialPlatforms].connect().subscribe();
   }
 
-  disconnect(socialNetwork: 'facebook' | 'google') {
-    this[socialNetwork].disconnect().subscribe();
+  disconnect(socialPlatforms: SocialPlatforms) {
+    this[socialPlatforms].disconnect().subscribe();
   }
 }
