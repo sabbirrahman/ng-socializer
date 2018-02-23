@@ -6,7 +6,7 @@
     <figcaption>
       <div>{{ profile.fullName || 'John Doe' }}</div>
       <div>{{ profile.email }}</div>
-      <div>{{ profile.username }}</div>
+      <div *ngIf="profile.username">@{{ profile.username }}</div>
     </figcaption>
   </figure>
 </a>

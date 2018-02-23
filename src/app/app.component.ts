@@ -4,6 +4,7 @@ import { Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy, ChangeDe
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators/map';
 // Services
+import { PinterestSocializer } from './lib/pinterest/pinterest.service';
 import { InstagramSocializer } from './lib/instagram/instagram.service';
 import { FacebookSocializer } from './lib/facebook/facebook.service';
 import { GoogleSocializer } from './lib/google/google.service';
@@ -33,7 +34,13 @@ export class AppComponent implements OnInit {
   instagramConnected$: Observable<boolean>;
   instagramStatus$: Observable<number>;
 
+  // Pinterest
+  pinterestProfileInfo$: Observable<SocialProfile>;
+  pinterestConnected$: Observable<boolean>;
+  pinterestStatus$: Observable<number>;
+
   constructor(
+    private pinterest: PinterestSocializer,
     private instagram: InstagramSocializer,
     private facebook: FacebookSocializer,
     private google: GoogleSocializer,
@@ -60,6 +67,12 @@ export class AppComponent implements OnInit {
     this.instagramProfileInfo$ = this.instagram.profile$;
     this.instagramConnected$ = this.instagram.connected$;
     this.instagramStatus$ = this.instagram.status$;
+
+    // Pinterest
+    this.pinterest.init({ appId: '4952205000911631231' }, true).subscribe();
+    this.pinterestProfileInfo$ = this.pinterest.profile$;
+    this.pinterestConnected$ = this.pinterest.connected$;
+    this.pinterestStatus$ = this.pinterest.status$;
   }
 
   connect(socialPlatforms: SocialPlatforms) {

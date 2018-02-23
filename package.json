@@ -25,6 +25,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --aot --port 7002 --hmr --open",
+    "start.secure": "npm start -- --ssl 1 --ssl-key './src/assets/certificates/key.pem' --ssl-cert './src/assets/certificates/cert.pem'",
     "build": "ng build --prod --no-source",
     "test": "ng test --code-coverage",
     "lint": "ng lint --type-check",
