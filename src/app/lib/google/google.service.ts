@@ -139,7 +139,7 @@ export class GoogleSocializer extends SocialService implements SocializerMethod 
       lastName: info.getFamilyName() || '',
       username: '',
       email: info.getEmail() || '',
-      link: '',
+      link: `https://plus.google.com/${info.getId()}`,
       image: info.getImageUrl() || '',
     };
 

@@ -2,6 +2,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 // Services
+import { PinterestSocializer } from './pinterest/pinterest.service';
 import { InstagramSocializer } from './instagram/instagram.service';
 import { FacebookSocializer } from './facebook/facebook.service';
 import { GoogleSocializer } from './google/google.service';
@@ -17,6 +18,7 @@ export class SocializerModule {
     return {
       ngModule: SocializerModule,
       providers: [
+        PinterestSocializer,
         InstagramSocializer,
         FacebookSocializer,
         GoogleSocializer
