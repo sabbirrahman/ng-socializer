@@ -14,7 +14,7 @@ import { asyncScriptLoad } from '../socializer.util';
 // Declarations
 declare const FB: any;
 
-interface FacebookSDKConfig {
+export interface FacebookSDKConfig {
   appId: number | string;
   scope?: string;
   field?: string;

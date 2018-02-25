@@ -12,7 +12,7 @@ import { SocializerMethod, SocialProfile } from '../socializer.interface';
 import { asyncScriptLoad } from '../socializer.util';
 declare const PDK: any;
 
-interface PinterestSDKConfig {
+export interface PinterestSDKConfig {
   appId: string;
   cookie?: boolean;
 }

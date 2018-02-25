@@ -11,7 +11,7 @@ import { SocialService } from '../social/social.service';
 import { SocializerMethod, SocialProfile } from '../socializer.interface';
 import { asyncScriptLoad } from '../socializer.util';
 
-interface InstagramSDKConfig {
+export interface InstagramSDKConfig {
   clienId: string;
   redirectUri?: string;
 }

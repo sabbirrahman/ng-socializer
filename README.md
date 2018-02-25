@@ -2,8 +2,8 @@
 >A Collection of Angular Services for Social Integration.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/sabbirrahman/ng-socializer/blob/master/LICENSE)
+[![NPM version](https://badge.fury.io/js/ng-socializer.svg)](https://www.npmjs.com/package/ng-socializer)
 <!-- [![Build Status](https://travis-ci.org/sabbirrahman/ng-socializer.svg?branch=master)](https://travis-ci.org/sabbirrahman/ng-socializer) -->
-<!-- [![NPM version](https://badge.fury.io/js/ng-socializer.svg)](https://www.npmjs.com/package/ng-socializer) -->
 
 Do you find integrating social network into your angular application harder? Fear no more, ng-socializer lets you integrate social networks such as facebook, google, instagram and pinterest easily.
 
@@ -53,7 +53,7 @@ export class MySocialComponent implements OnInit {
   ...
   ngOnInit() {
     ...
-    // Everytime User Connects or Disconnects, A Value will be Emmited from profile$ property
+    // Everytime User Connects or Disconnects, A Value will be Emmited from profile$ Observable
     this.facebookSocializer.profile$.subscribe((profile) => {
       console.log(profile);
     });

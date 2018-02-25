@@ -13,7 +13,7 @@ import { Observer } from 'rxjs/Observer';
 import { map } from 'rxjs/operators/map';
 declare const gapi: any;
 
-interface GoogleSDKConfig {
+export interface GoogleSDKConfig {
   clientId: string;
   apiKey?: string;
   scope?: string;
