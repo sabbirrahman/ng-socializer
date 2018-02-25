@@ -27,7 +27,7 @@
     "start": "ng serve --aot --port 7002 --hmr --open",
     "start.secure": "npm start -- --ssl 1 --ssl-key './src/assets/certificates/key.pem' --ssl-cert './src/assets/certificates/cert.pem'",
     "build": "ng build --prod --no-source",
-    "build.gh-pages": "npm run build -- --base-href ng-socializer && cp docs/index.html docs/404.html",
+    "build.gh-pages": "npm run build -- --base-href ng-socializer --output-path docs && cp docs/index.html docs/404.html",
     "test": "ng test --code-coverage",
     "lint": "ng lint --type-check",
     "e2e": "ng e2e",
