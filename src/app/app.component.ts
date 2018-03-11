@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
     this.googleStatus$ = this.google.status$;
 
     // Instagram
-    this.instagram.init({ clienId: '667599dfbeb34e07b107161c6191dfe9' }, true).subscribe();
+    this.instagram.init({ clientId: '667599dfbeb34e07b107161c6191dfe9' }, true).subscribe();
     this.instagramProfileInfo$ = this.instagram.profile$;
     this.instagramConnected$ = this.instagram.connected$;
     this.instagramStatus$ = this.instagram.status$;

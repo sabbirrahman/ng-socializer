@@ -12,7 +12,7 @@ import { SocializerMethod, SocialProfile } from '../socializer.interface';
 import { asyncScriptLoad } from '../socializer.util';
 
 export interface InstagramSDKConfig {
-  clienId: string;
+  clientId: string;
   redirectUri?: string;
 }
 
@@ -31,7 +31,7 @@ export class InstagramSocializer extends SocialService implements SocializerMeth
     this._updateInitiationStatus(false, true);
     this.config = config;
 
-    if (!config.clienId) {
+    if (!config.clientId) {
       throw Error('You must provide a instagram clientId.');
     }
 
@@ -70,7 +70,7 @@ export class InstagramSocializer extends SocialService implements SocializerMeth
     } else if (!autoConnect) {
       return Observable.create((observer) => {
         // tslint:disable-next-line:max-line-length
-        const url = `https://api.instagram.com/oauth/authorize/?client_id=${this.config.clienId}&redirect_uri=${this.config.redirectUri}&response_type=token`;
+        const url = `https://api.instagram.com/oauth/authorize/?client_id=${this.config.clientId}&redirect_uri=${this.config.redirectUri}&response_type=token`;
         const win = window.open(url, '', 'width=800,height=600');
 
         this.ngZone.runOutsideAngular(() => {
