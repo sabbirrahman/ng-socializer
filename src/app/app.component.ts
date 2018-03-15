@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators/map';
 // Services
 import { PinterestSocializer } from './lib/pinterest/pinterest.service';
 import { InstagramSocializer } from './lib/instagram/instagram.service';
+import { LinkedInSocializer } from './lib/linked-in/linked-in.service';
 import { FacebookSocializer } from './lib/facebook/facebook.service';
 import { GoogleSocializer } from './lib/google/google.service';
 // Interfaces
@@ -39,9 +40,15 @@ export class AppComponent implements OnInit {
   pinterestConnected$: Observable<boolean>;
   pinterestStatus$: Observable<number>;
 
+  // LinkedIn
+  linkedInProfileInfo$: Observable<SocialProfile>;
+  linkedInConnected$: Observable<boolean>;
+  linkedInStatus$: Observable<number>;
+
   constructor(
     private pinterest: PinterestSocializer,
     private instagram: InstagramSocializer,
+    private linkedIn: LinkedInSocializer,
     private facebook: FacebookSocializer,
     private google: GoogleSocializer,
     private cdr: ChangeDetectorRef
@@ -73,6 +80,12 @@ export class AppComponent implements OnInit {
     this.pinterestProfileInfo$ = this.pinterest.profile$;
     this.pinterestConnected$ = this.pinterest.connected$;
     this.pinterestStatus$ = this.pinterest.status$;
+
+    // LinkedIn
+    this.linkedIn.init({}, true).subscribe();
+    this.linkedInProfileInfo$ = this.linkedIn.profile$;
+    this.linkedInConnected$ = this.linkedIn.connected$;
+    this.linkedInStatus$ = this.linkedIn.status$;
   }
 
   connect(socialPlatforms: SocialPlatforms) {

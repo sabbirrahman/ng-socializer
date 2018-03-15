@@ -5,10 +5,10 @@
 [![NPM version](https://badge.fury.io/js/ng-socializer.svg)](https://www.npmjs.com/package/ng-socializer)
 <!-- [![Build Status](https://travis-ci.org/sabbirrahman/ng-socializer.svg?branch=master)](https://travis-ci.org/sabbirrahman/ng-socializer) -->
 
-Do you find integrating social network into your angular application harder? Fear no more, ng-socializer lets you integrate social networks such as facebook, google, instagram and pinterest easily.
+Do you find integrating social network into your angular application harder? Fear no more, ng-socializer lets you integrate social networks such as facebook, google, instagram pinterest and linkedin easily.
 
 ## Features
-* Supports facebook, google, instagram and pinterest.
+* Supports facebook, google, instagram, pinterest and linkedin.
 * Easy and common API for all supported social networks.
 * Common data structure for user profile reponse.
 * RxJS observable based.
@@ -76,7 +76,8 @@ export class MySocialComponent implements OnInit {
 
 ## Documentation
 
-See full documentation [here](https://github.com/sabbirrahman/ng-socializer/blob/master/DOCUMENTATION.md).
+Coming Soon...
+<!-- See full documentation [here](https://github.com/sabbirrahman/ng-socializer/blob/master/DOCUMENTATION.md). -->
 
 <!-- ## Development & Contribution
 

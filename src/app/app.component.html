@@ -37,5 +37,14 @@
       (connect)="connect('pinterest')"
       type="pinterest"
     ></social-box>
+
+    <social-box
+      [connected]="linkedInConnected$ | async"
+      [profile]="linkedInProfileInfo$ | async"
+      [status]="linkedInStatus$ | async"
+      (disconnect)="disconnect('linkedIn')"
+      (connect)="connect('linkedIn')"
+      type="linkedIn"
+    ></social-box>
   </div>
 </main>
