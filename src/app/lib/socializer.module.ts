@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 // Services
 import { PinterestSocializer } from './pinterest/pinterest.service';
 import { InstagramSocializer } from './instagram/instagram.service';
+import { LinkedInSocializer } from './linked-in/linked-in.service';
 import { FacebookSocializer } from './facebook/facebook.service';
 import { GoogleSocializer } from './google/google.service';
 
@@ -20,6 +21,7 @@ export class SocializerModule {
       providers: [
         PinterestSocializer,
         InstagramSocializer,
+        LinkedInSocializer,
         FacebookSocializer,
         GoogleSocializer
       ]

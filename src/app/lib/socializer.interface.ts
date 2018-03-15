@@ -37,4 +37,4 @@ export enum SocializerStatus {
   Connected
 }
 
-export type SocialPlatforms = 'facebook' | 'google' | 'instagram' | 'pinterest';
+export type SocialPlatforms = 'facebook' | 'google' | 'instagram' | 'pinterest' | 'linkedIn';
